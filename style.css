@@ -1,0 +1,84 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #222;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow di bagian bawah navbar */
+    padding: 15px 0; /* Tinggi navbar lebih tinggi */
+    border-bottom: 2px solid #f0f0f0; /* Garis bawah transparan */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    margin-left:2%;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links li:first-child {
+    margin-left: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    border-bottom: 2px solid #00ff00; /* Garis bawah transparan */
+    transition: border-bottom 0.3s; /* Efek transisi saat dihover */
+    padding: 2px 10px; /* Tambahkan padding horizontal untuk memusatkan teks */
+    font-weight: bold; /* Teks tebal */
+}
+
+/* Efek hover pada tautan navbar */
+.nav-links li a:hover {
+    border-bottom: 2px solid white; /* Garis bawah saat dihover */
+}
+
+
+
+
+
+
+
+
+/* Container untuk video */
+.video-container {
+    max-width: 800px; /* Lebar maksimum container video */
+    margin: 20px auto auto;
+    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Efek bayangan di sekitar container */
+    background-color: #222; /* Warna latar belakang container abu-abu lebih gelap */
+    
+}
+
+/* Video */
+#animePlayer {
+    width: 95%; /* Video akan mengisi lebar container */
+    height: auto; /* Tinggi video akan disesuaikan dengan aspek rasio video asli */
+    border: 3px solid #f0f0f0; /* Border tebal 5px dengan warna abu-abu gelap */
+}

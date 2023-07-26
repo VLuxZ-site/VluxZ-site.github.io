@@ -1,71 +1,113 @@
-<!-- STYLE 1>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime Player</title>
-</head>
-<body>
-    <h1>Anime Player</h1>
-    <video id="animePlayer" width="500px" height="90%" controls>
-        <source src="" type="video/mp4">
-        
-    </video>
-    
-</body>
-</html>
--->
+  <title>TESTER</title>
+  <style>
+    /* Tema gelap */
+    body.dark-theme {
+      background-color: #1a1a1a;
+      color: #e0e0e0;
+    }
 
-<!-- STYLE 2
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime Player</title>
-    
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-</head>
-<body>
-    <div class="video-container">
-        <video id="animePlayer" controls>
-            <source src="UNCENSORED_Amber_x_Eula_Threesome_Genshin_Impact_Animation_480p.mp4" type="video/mp4">
-           
-        </video>
-    </div>
-</body>
-</html>
+    body.dark-theme h1 {
+      color: #ffffff;
+    }
 
--->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime Player</title>
-    <link rel="stylesheet" href="style.css">
+    body.dark-theme .control-buttons button {
+      background-color: #3498db;
+      color: #fff;
+    }
+
+    body.dark-theme .control-buttons button:hover {
+      background-color: #2980b9;
+    }
+
+    /* Tema cerah */
+    body.light-theme {
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    body.light-theme h1 {
+      color: #000;
+    }
+
+    body.light-theme .control-buttons button {
+      background-color: #3498db;
+      color: #fff;
+    }
+
+    body.light-theme .control-buttons button:hover {
+      background-color: #2980b9;
+    }
+
+    /* Gaya umum untuk tombol kontrol */
+    .control-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .control-buttons button {
+      border: none;
+      padding: 10px 15px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    /* Gaya untuk memperbesar ukuran kontrol pemutar musik */
+    audio {
+      width: 100%;
+    }
+  </style>
 </head>
-<body>
-    <nav class="navbar">
-        <div class="container">
-            <a href="#" class="logo">VLuxZ-X</a>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Anime List</a></li>
-                <li><a href="#">About Us</a></li>
-                <!-- Tambahkan menu lain di sini -->
-            </ul>
-        </div>
-    </nav>
-<center>
-    <div class="video-container">
-        <video id="animePlayer" controls poster="thumb1.png">>
-            <source src="UNCENSORED_Amber_x_Eula_Threesome_Genshin_Impact_Animation_480p.mp4" type="video/mp4">
-            <!-- Tambahkan sumber video lain di sini untuk dukungan browser yang berbeda -->
-        </video>
-    </div>
-    </center>
+<body class="dark-theme">
+  <h1>BETA TEST</h1>
+  <div class="control-buttons">
+    <button onclick="playPreviousSong()">Sebelumnya</button>
+   <audio id="musicPlayer" controls autoplay>
+
+      <source src="Tada.mp3" type="audio/mpeg">
+      <source src="Tada.mp3" type="audio/mpeg">
+      <source src="path/to/song3.mp3" type="audio/mpeg">
+      <source src="path/to/song4.mp3" type="audio/mpeg">
+      <source src="path/to/song5.mp3" type="audio/mpeg">
+    </audio>
+    <button onclick="playNextSong()">Berikutnya</button>
+  </div>
+
+  <script>
+    document.getElementById('musicPlayer').addEventListener('ended', playNextSong);
+
+    function playNextSong() {
+      var currentSong = document.querySelector('audio source[src]');
+      var nextSong = currentSong.nextElementSibling;
+
+      if (nextSong) {
+        document.getElementById('musicPlayer').src = nextSong.src;
+        document.getElementById('musicPlayer').play();
+      } else {
+        var firstSong = document.querySelector('audio source');
+        document.getElementById('musicPlayer').src = firstSong.src;
+        document.getElementById('musicPlayer').play();
+      }
+    }
+
+    function playPreviousSong() {
+      var currentSong = document.querySelector('audio source[src]');
+      var previousSong = currentSong.previousElementSibling;
+
+      if (previousSong) {
+        document.getElementById('musicPlayer').src = previousSong.src;
+        document.getElementById('musicPlayer').play();
+      } else {
+        var lastSong = document.querySelector('audio source:last-child');
+        document.getElementById('musicPlayer').src = lastSong.src;
+        document.getElementById('musicPlayer').play();
+      }
+    }
+  </script>
 </body>
 </html>

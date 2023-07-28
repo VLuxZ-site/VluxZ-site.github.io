@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TESTER</title>
+  <style>
+    /* Tema gelap */
+    body.dark-theme {
+      background-color: #1a1a1a;
+      color: #e0e0e0;
+    }
+
+    body.dark-theme h1 {
+      color: #ffffff;
+    }
+
+    body.dark-theme .control-buttons button {
+      background-color: #3498db;
+      color: #fff;
+    }
+
+    body.dark-theme .control-buttons button:hover {
+      background-color: #2980b9;
+    }
+
+    /* Tema cerah */
+    body.light-theme {
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    body.light-theme h1 {
+      color: #000;
+    }
+
+    body.light-theme .control-buttons button {
+      background-color: #3498db;
+      color: #fff;
+    }
+
+    body.light-theme .control-buttons button:hover {
+      background-color: #2980b9;
+    }
+
+    /* Gaya umum untuk tombol kontrol */
+    .control-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .control-buttons button {
+      border: none;
+      padding: 10px 15px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    /* Gaya untuk memperbesar ukuran kontrol pemutar musik */
+    audio {
+      width: 100%;
+    }
+  </style>
+</head>
+<body class="dark-theme">
+  <h1>BETA TEST</h1>
+  
+  <b/>JAPAN ONLY
+  <div class="control-buttons">
+    <button onclick="playPreviousSong()">Sebelumnya</button>
+   <audio id="musicPlayer" controls autoplay>
+
+      <source src="Tada.mp3" type="audio/mpeg">
+      
+      <source src="Oshi_no_Ko__Mephisto.mp3" type="audio/mpeg">
+      
+      <source src="Oshi_no_Ko__Opening.mp3" type="audio/mpeg">
+      
+      <source src="Orange__By_Gustixa.mp3" type="audio/mpeg">
+      
+      <source src="Shine.mp3" type="audio/mpeg">
+      
+      <source src="Oshi_no_Ko__Mephisto.mp3" type="audio/mpeg">
+      
+      <source src="Oshi_no_Ko__Mephisto.mp3" type="audio/mpeg">
+      
+      <source src="Oshi_no_Ko__Mephisto.mp3" type="audio/mpeg">
+       
+      <source src="Oshi_no_Ko__Mephisto.mp3" type="audio/mpeg">
+       
+      <source src="Oshi_no_Ko__Mephisto.mp3" type="audio/mpeg">
+      
+    </audio>
+    <button onclick="playNextSong()">Berikutnya</button>
+  </div>
+  
+  <b/>SAD MUSIC ENGLISH ONLY
+  <div class="control-buttons">
+    <button onclick="playPreviousSong1()">Sebelumnya</button>
+   <audio id="musicPlayer1" controls autoplay>
+
+      <source src="I'm_Yours_x_Death_Bed.mp3" type="audio/mpeg">
+      <source src="Tada.mp3" type="audio/mpeg">
+      <source src="path/to/song3.mp3" type="audio/mpeg">
+      <source src="path/to/song4.mp3" type="audio/mpeg">
+      <source src="path/to/song5.mp3" type="audio/mpeg">
+    </audio>
+    <button onclick="playNextSong1()">Berikutnya</button>
+  </div>
+
+  <script>
+    document.getElementById('musicPlayer').addEventListener('ended', playNextSong);
+
+    function playNextSong() {
+      var currentSong = document.querySelector('audio source[src]');
+      var nextSong = currentSong.nextElementSibling;
+
+      if (nextSong) {
+        document.getElementById('musicPlayer').src = nextSong.src;
+        document.getElementById('musicPlayer').play();
+      } else {
+        var firstSong = document.querySelector('audio source');
+        document.getElementById('musicPlayer').src = firstSong.src;
+        document.getElementById('musicPlayer').play();
+      }
+    }
+
+    function playPreviousSong() {
+      var currentSong = document.querySelector('audio source[src]');
+      var previousSong = currentSong.previousElementSibling;
+
+      if (previousSong) {
+        document.getElementById('musicPlayer').src = previousSong.src;
+        document.getElementById('musicPlayer').play();
+      } else {
+        var lastSong = document.querySelector('audio source:last-child');
+        document.getElementById('musicPlayer').src = lastSong.src;
+        document.getElementById('musicPlayer').play();
+      }
+    }
+  </script>
+  
+  <script>
+    document.getElementById('musicPlayer1').addEventListener('ended', playNextSong1);
+
+    function playNextSong1() {
+      var currentSong1 = document.querySelector('audio source[src]');
+      var nextSong1 = currentSong.nextElementSibling;
+
+      if (nextSong1) {
+        document.getElementById('musicPlayer1').src = nextSong1.src;
+        document.getElementById('musicPlayer1').play();
+      } else {
+        var firstSong1 = document.querySelector('audio source');
+        document.getElementById('musicPlayer1').src = firstSong1.src;
+        document.getElementById('musicPlayer1').play();
+      }
+    }
+
+    function playPreviousSong1() {
+      var currentSong1 = document.querySelector('audio source[src]');
+      var previousSong1 = currentSong.previousElementSibling;
+
+      if (previousSong1) {
+        document.getElementById('musicPlayer1').src = previousSong1.src;
+        document.getElementById('musicPlayer1').play();
+      } else {
+        var lastSong1 = document.querySelector('audio source:last-child');
+        document.getElementById('musicPlayer1').src = lastSong1.src;
+        document.getElementById('musicPlayer1').play();
+      }
+    }
+  </script>
+</body>
+</html>
